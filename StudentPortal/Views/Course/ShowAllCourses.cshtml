@@ -1,0 +1,46 @@
+﻿@model  IEnumerable<StudentPortal.Models.Course>
+@{
+    ViewBag.Title = "ShowAllourses";
+}
+
+<h2>Show All Courses with the Students they are Enrolled</h2>
+<a href="@Url.Action("Index","Course")" class="btn btn-success">Add Student </a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>COurse name</th>
+            <th>Course Code</th>
+            <th>Students in this course </th>
+            
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.CourseName
+                </td>
+                <td>
+                    @item.CourseCode
+                </td>
+               
+
+                <td>
+                    @foreach (var x in item.StudentWithCourses)
+                    {
+                        <i class="glyphicon glyphicon-user"></i> @x.Students.StudentName
+                    }
+                </td>
+                @*<td>
+                    <a href="@Url.Action("Edit", "Student", new { id = item.Id })" class="btn btn-xxs fa fa-pencil"> Edit </a>
+                    <a href="@Url.Action("Delete", "Student", new { id = item.Id })" class="btn btn-xxs fa fa-trash text-danger"> Delete </a>
+
+                </td>*@
+            </tr>
+        }
+    </tbody>
+
+
+</table>

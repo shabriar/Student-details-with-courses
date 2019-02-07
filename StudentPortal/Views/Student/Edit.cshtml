@@ -1,0 +1,41 @@
+﻿@model  StudentPortal.Models.CourseIdWithCourses
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <label for="exampleInputEmail1"> Name </label>
+        @Html.TextBoxFor(model => model.StudentName , new { @class = "form-control", @type = "text", @placeholder = "Pass word" })
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Roll</label>
+        @Html.TextBoxFor(model => model.StudentRoll, new { @class = "form-control", @type = "text", @placeholder = "Pass word" })
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1"> Dept</label>
+        @Html.TextBoxFor(model => model.StudentDeprtment, new { @class = "form-control", @type = "text", @placeholder = "Pass word" })
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputEmail1"> Batch</label>
+        @Html.TextBoxFor(model => model.StudentBatch, new { @class = "form-control", @type = "text", @placeholder = "Pass word" })
+    </div>
+
+
+    <div class="form-group">
+        <label for="Bike_add"> Courses selection to change </label>
+        @Html.DropDownListFor(model => model.CourseIdList, new SelectList(ViewBag.CourseIdlistFromController, "Id", "CourseName"), new { @class = "form-control select", multiple = true })
+
+    </div>
+
+
+
+    <div>
+        <button type="submit" class="btn btn-success">Edit</button>
+    </div>
+}

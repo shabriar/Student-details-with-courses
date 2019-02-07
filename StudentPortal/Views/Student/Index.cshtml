@@ -1,0 +1,43 @@
+﻿@model  StudentPortal.Models.CourseIdWithCourses
+@{ /**/
+                /**/
+                ViewBag.Title = "Index";
+}
+
+<h2>Provide Student Details :</h2>
+@using (Html.BeginForm("Index", "Student"))
+{
+
+    <div class="form-group">
+        <label for="exampleInputEmail1"> Name </label>
+        <input type="text" name="StudentName" class="form-control" id="UserName" aria-describedby="emailHelp" placeholder="Enter User Name" required="required">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your Name with anyone else.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Roll </label>
+        <input type="text" name="StudentRoll" class="form-control" id="UserEmail" aria-describedby="emailHelp" placeholder="Enter email" required="required">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1"> Deprtment</label>
+        <input type="text" name="StudentDeprtment" class="form-control" id="UserName" aria-describedby="emailHelp" placeholder="Enter phone" required="required">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your Phone with anyone else.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputEmail1"> Batch </label>
+        <input type="number" name="StudentBatch" class="form-control" id="UserName" aria-describedby="emailHelp" placeholder="Enter email" required="required">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your address with anyone else.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="Bike_add"> Courses</label>
+        @Html.DropDownListFor(model => model.CourseIdList, new SelectList(ViewBag.CourseList, "Id", "CourseName"), new { @class = "form-control select", multiple = true })
+
+    </div>
+    <div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+
+}
